@@ -1,17 +1,13 @@
 APP_NAME=$1
 NEO=./target/sdk/tools/neo.sh
-pwd
 echo Deploying "$APP_NAME"
-$NEO deploy -a "$ACCOUNT" 
-       -b "$APP_NAME" 
-       -h "$LANDSCAPE_HOST" 
-       -u "$DEPLOY_USERNAME" 
-       -p "$DEPLOY_PASSWORD" 
-       -s ./target/basecamp-1.0.0.war
+
+echo Deploying "$ACCOUNT"
+echo Deploying "$LANDSCAPE_HOST"
+echo Deploying "$DEPLOY_USERNAME"
+echo Deploying "$DEPLOY_PASSWORD"
+
+$NEO deploy -a "$ACCOUNT" -b "$APP_NAME" -h "$LANDSCAPE_HOST" -u "$DEPLOY_USERNAME" -p "$DEPLOY_PASSWORD" -s ./target/basecamp-1.0.0.war
 echo Restarting app...
-$NEO restart -a "$ACCOUNT" 
-             -b "$APP_NAME" 
-             -h "$LANDSCAPE_HOST" 
-             -u "$DEPLOY_USERNAME" 
-             -p "$DEPLOY_PASSWORD"
+$NEO restart -a "$ACCOUNT" -b "$APP_NAME" -h "$LANDSCAPE_HOST" -u "$DEPLOY_USERNAME" -p "$DEPLOY_PASSWORD"
 echo DEPLOYMENT FINISHED
